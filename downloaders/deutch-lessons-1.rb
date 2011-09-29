@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # Downloading deutch lessons from http://www.dw-world.de/dw/0,,2548,00.html
 
 require 'rubygems'
@@ -13,6 +14,7 @@ page.forms.each do |form|
   if select.is_a? Mechanize::Form::SelectList
     select.options.each do |option|
       dir = "deutch-lessons-1/#{index}/#{option.text}"
+
       FileUtils.mkdir_p(dir)
 
       opt_url = "http://www.dw-world.de/dw/content/0,,#{option.value},00.html"
